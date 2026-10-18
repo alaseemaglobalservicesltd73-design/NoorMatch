@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'screens/welcome_screen.dart';
+import 'screens/register_screen.dart';
+import 'screens/wali_invite_screen.dart';
+import 'screens/verification_screen.dart';
+import 'screens/home_screen.dart';
+
+void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Supabase.initialize(url: 'YOUR_URL', anonKey: 'YOUR_KEY');
+  runApp(NoorMatchApp());
+}
+
+class NoorMatchApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'NoorMatch Global',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Color(0xFF0E4A3A),
+        scaffoldBackgroundColor: Color(0xFFFFFBF5),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF0E4A3A)),
+        textTheme: GoogleFonts.poppinsTextTheme(),
+      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => WelcomeScreen(),
+        '/register': (context) => RegisterScreen(),
+        '/wali': (context) => WaliInviteScreen(),
+        '/verify': (context) => VerificationScreen(),
+        '/home': (context) => HomeScreen(),
+      },
+    );
+  }
+}
